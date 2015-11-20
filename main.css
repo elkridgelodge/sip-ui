@@ -1,0 +1,15 @@
+/* CSS declarations go here */
+#main {
+width: 500px;
+margin-right: auto;
+margin-left: auto;
+}
+
+.input, .textarea, .select, .asterix, .nextbutton {
+clear: both;
+}
+
+input, select, textarea, .holder, .nextbutton, .asterix {
+float: right;
+margin-right: 20px;
+}
