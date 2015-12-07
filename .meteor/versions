@@ -48,6 +48,9 @@ meteor@1.1.9
 meteor-base@1.0.1
 minifiers@1.1.7
 minimongo@1.0.10
+mizzao:accounts-testing@0.1.0
+mizzao:timesync@0.3.4
+mizzao:user-status@0.6.6
 mobile-experience@1.0.1
 mobile-status-bar@1.0.6
 mongo@1.1.2
@@ -56,6 +59,8 @@ npm-bcrypt@0.7.8_2
 npm-mongo@1.4.39_1
 observe-sequence@1.0.7
 ordered-dict@1.0.4
+peerlibrary:blocking@0.5.2
+peerlibrary:xml2js@0.4.8_1
 promise@0.5.0
 random@1.0.4
 rate-limit@1.0.0

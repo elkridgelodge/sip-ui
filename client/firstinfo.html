@@ -1,25 +1,27 @@
 <template name="firstinfo">
 {{#if stageone}}
+{{> sitetitle}}
         <div class="input">
-            <input type="text" id="firstname-input" maxlength="50">
             <p class="holder">First Name <span></span></p>
+            <input type="text" id="firstname-input" maxlength="50">
         </div>
 
         <div class="input">
-            <input type="text" name="lname" maxlength="50">
             <p class="holder">Last Name <span></span></p>
+            <input type="text" name="lname" maxlength="50">
         </div>
 
         <div class="input">
-            <input type="text" id="email-input" maxlength="50">
             <p class="holder">Work Email <span>*</span></p>
+            <input type="text" value="{{email}}" id="email-input" maxlength="50">
         </div>
   <div class="input">
-    <input type="text" id="phone-input" maxlength="50">
     <p class="holder">Direct phone number <span>*</span></p>
+    <input type="text" value="{{phone}}" id="phone-input" maxlength="50">
   </div>
 
                 <div class="select" >
+                        <p class="holder selectedval">Country: United States</p>
                         <select id="countrylc" name="country" defvalue="United States">
                                 <!-- option value="-1" disabled="disabled">Country</option -->
                                 <option value="United States" selected="selected">Country: United States</option>
@@ -27,15 +29,15 @@
                                 <option value="Canada">Country: Canada</option>
                                 <option value="Other">Country: Other</option>
                         </select>
-                        <p class="holder selectedval">Country: United States</p>
                 </div>
 
         <div class="textarea">
-            <textarea name="description"></textarea>
             <p class="holder">How can we help?</p>
+            <textarea name="description"></textarea>
         </div>
 
         <p class="asterix">Required fields <span>*</span></p>
+{{> nextbutton}}
 {{/if}}
 </template>
 

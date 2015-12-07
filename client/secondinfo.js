@@ -10,10 +10,15 @@ Template.secondinfo.helpers({
   },
   mainnumber: function () {
 //console.log(Template.instance().mainnumber.get())
-    return Template.instance().mainnumber.get()
+    if (Meteor.users.findOne({_id: Meteor.userId()})) {
+      return Meteor.users.findOne({_id: Meteor.userId()}).username
+    } else {
+      return Template.instance().mainnumber.get()
+    }
   },
   didnumber: function () {
 //console.log(Template.instance().didnumber.get())
+    return Session.get("didnumber")
     return Template.instance().didnumber.get()
   },
 })
@@ -38,17 +43,21 @@ Template.secondinfo.created = function () {
 
   instance.didnumber = new ReactiveVar(Session.get('othernumber'))
   this.autorun(function () {
-    var user = Meteor.users.findOne()
-    if (user && Session.equals('userdata_loaded', true) && Session.equals('othernumber', '')) {
+    var insecureusername = Session.get("insecureusername")
+    console.log(insecureusername)
+    var user = Meteor.users.findOne({_id: Meteor.userId()})
+    if (user && Session.equals('insecureloggedin', true)) {
 //console.log("trying")
-      Meteor.call("didnumber", user._id, function (e, r) {
-        if (!e) {
-          console.log(e)
-          console.log(r)
-          instance.didnumber.set(r)
-          Session.set('othernumber', r)
+      Meteor.call("didnumber", Session.get("insecureusername"), function (e, r) {
+        if (r) {
+console.log(r)
+          console.log(r.content)
+          instance.didnumber.set(r.content)
+instance.didnumber.set(r)
+          Session.set("didnumber", r)
         } else {
           console.log(e)
+          Session.set("didnumber", "server error")
         }
       })
 
